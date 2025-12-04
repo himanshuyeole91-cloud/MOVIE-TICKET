@@ -1,0 +1,594 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.subtitle {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+.main-nav {
+    display: flex;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    padding: 0;
+}
+
+.nav-btn {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 600;
+    color: #666;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-btn:hover {
+    background: #e9ecef;
+    color: #667eea;
+}
+
+.nav-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+    background: white;
+}
+
+.content-section {
+    display: none;
+    padding: 40px;
+    animation: fadeIn 0.3s ease;
+}
+
+.content-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: #667eea;
+    margin-bottom: 30px;
+    font-size: 2em;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* Movies Grid */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.movie-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.movie-card p {
+    color: #666;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.movie-card .genre {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    margin-top: 10px;
+}
+
+/* Theaters Grid */
+.theaters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.theater-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.theater-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+
+.theater-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.theater-card .info {
+    color: #666;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.theater-card .info strong {
+    color: #333;
+}
+
+/* Booking Form */
+.booking-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.form-group select,
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+    margin-bottom: 10px;
+}
+
+/* Seat Layout */
+#seat-layout-container {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.screen {
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.seats-grid {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.seat-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-label {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.seat:hover {
+    background: #e9ecef;
+    transform: scale(1.1);
+}
+
+.seat.available {
+    background: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.seat.selected {
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
+    transform: scale(1.1);
+}
+
+.seat.occupied {
+    background: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-seat {
+    width: 25px;
+    height: 25px;
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.selected-seats {
+    margin-top: 15px;
+    padding: 15px;
+    background: #e7f3ff;
+    border-radius: 8px;
+    min-height: 50px;
+}
+
+.selected-seats h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.selected-seats-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.seat-badge {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+/* Bookings List */
+.search-booking {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.search-booking input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.bookings-list {
+    display: grid;
+    gap: 20px;
+}
+
+.booking-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.booking-card:hover {
+    border-color: #667eea;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+
+.booking-card h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.booking-card .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.booking-card .info-row strong {
+    color: #333;
+}
+
+.booking-card .status {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.status.confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.close:hover {
+    color: #667eea;
+}
+
+/* Toast Notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #333;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+    z-index: 2000;
+    animation: slideInRight 0.3s ease;
+}
+
+.toast.show {
+    display: block;
+}
+
+.toast.success {
+    background: #28a745;
+}
+
+.toast.error {
+    background: #dc3545;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .main-nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-btn {
+        flex: 1 1 50%;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .movies-grid,
+    .theaters-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .seat {
+        width: 35px;
+        height: 35px;
+        font-size: 0.75em;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+        margin: 10% auto;
+    }
+}

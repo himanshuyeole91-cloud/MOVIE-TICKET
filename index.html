@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Movie Ticket Booking System</h1>
+            <p class="subtitle">Book your favorite movies with ease</p>
+        </header>
+
+        <nav class="main-nav">
+            <button class="nav-btn active" data-section="movies">Movies</button>
+            <button class="nav-btn" data-section="theaters">Theaters</button>
+            <button class="nav-btn" data-section="book">Book Ticket</button>
+            <button class="nav-btn" data-section="bookings">My Bookings</button>
+        </nav>
+
+        <!-- Movies Section -->
+        <section id="movies" class="content-section active">
+            <h2>Available Movies</h2>
+            <div id="movies-list" class="movies-grid"></div>
+        </section>
+
+        <!-- Theaters Section -->
+        <section id="theaters" class="content-section">
+            <h2>Theaters</h2>
+            <div id="theaters-list" class="theaters-grid"></div>
+        </section>
+
+        <!-- Book Ticket Section -->
+        <section id="book" class="content-section">
+            <h2>Book Your Ticket</h2>
+            <form id="booking-form" class="booking-form">
+                <div class="form-group">
+                    <label for="movie-select">Select Movie:</label>
+                    <select id="movie-select" required>
+                        <option value="">-- Choose a Movie --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="theater-select">Select Theater:</label>
+                    <select id="theater-select" required>
+                        <option value="">-- Choose a Theater --</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Customer Details:</label>
+                    <input type="text" id="customer-name" placeholder="Full Name" required>
+                    <input type="email" id="customer-email" placeholder="Email Address" required>
+                    <input type="tel" id="customer-phone" placeholder="Phone Number" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Seat Selection:</label>
+                    <div id="seat-layout-container"></div>
+                    <div id="selected-seats" class="selected-seats"></div>
+                </div>
+
+                <button type="submit" class="btn-primary">Confirm Booking</button>
+            </form>
+        </section>
+
+        <!-- Bookings Section -->
+        <section id="bookings" class="content-section">
+            <h2>My Bookings</h2>
+            <div class="search-booking">
+                <input type="text" id="booking-id-input" placeholder="Enter Booking ID">
+                <button id="search-booking-btn" class="btn-secondary">Search</button>
+            </div>
+            <div id="bookings-list" class="bookings-list"></div>
+        </section>
+    </div>
+
+    <!-- Modal for Booking Details -->
+    <div id="booking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Booking Details</h2>
+            <div id="booking-details"></div>
+            <button id="cancel-booking-btn" class="btn-danger">Cancel Booking</button>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
